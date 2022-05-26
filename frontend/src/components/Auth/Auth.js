@@ -15,12 +15,14 @@ const initialState = { firstName: '', lastName: '', email: '', password: '', con
 const Auth = () => {
    const classes = useStyles();
    const [showPassword, setShowPassword] = useState(false);
+   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
    const [isSignUp, setIsSignUp] = useState(false);
    const [formData, setFormData] = useState(initialState);
    const dispatch = useDispatch();
    const navigate = useNavigate();
 
-   const handleShowPassword = () => setShowPassword(prevShowPassword => !prevShowPassword);
+   const handleShowPassword = () => setShowPassword(prevShowPass => !prevShowPass);
+   const handleConfirmShowPassword = () => setShowConfirmPassword(prevCShowPass => !prevCShowPass);
 
    const handleSubmit = (e) => {
       e.preventDefault();
@@ -38,6 +40,7 @@ const Auth = () => {
 
    const switchMode = () => {
       setIsSignUp(prevIsSignUp => !prevIsSignUp);
+      setShowPassword(false);
    }
 
    const googleSuccess = async res => {
@@ -105,7 +108,8 @@ const Auth = () => {
                         name='confirmPassword'
                         label='Repeat Password'
                         handleChange={handleChange} 
-                        type='password'
+                        type={showConfirmPassword ? 'text' : 'password'}
+                        handleShowPassword={handleConfirmShowPassword}
                      />
                   }
                </Grid>
