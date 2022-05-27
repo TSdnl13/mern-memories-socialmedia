@@ -8,7 +8,7 @@ import Posts from '../Posts/Posts';
 import useStyles from './styles';
 
 const Home = () => {
-   const [currentId, setCurrentId] = useState(null);
+   const [currentId, setCurrentId] = useState(0);
    const dispatch = useDispatch();
    const classes = useStyles();
    
