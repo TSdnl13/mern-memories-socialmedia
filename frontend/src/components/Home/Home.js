@@ -31,7 +31,8 @@ const Home = () => {
 
    const searchPost = () => {
       if (searchTerm.trim() || tags) {
-         dispatch(getPostsBySearch({ searchTerm, tags: tags.join(',') }))
+         dispatch(getPostsBySearch({ searchTerm, tags: tags.join(',') }));
+         navigate(`/posts/search?searchQuery=${searchTerm || 'none'}&tags=${tags.join(',')}`);
       } else {
          navigate('/');
       }
