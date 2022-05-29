@@ -1,7 +1,11 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, FETCH_BY_SEARCH } from "../constants/actionTypes"; 
+import { FETCH_ALL, CREATE, UPDATE, DELETE, FETCH_BY_SEARCH, START_LOADING, END_LOADING } from "../constants/actionTypes"; 
 
 const posts =  (state = [], action) => {
    switch (action.type) {
+      case START_LOADING:
+         return { ...state, isLoading: true }
+      case END_LOADING:
+         return { ...state, isLoading: false }
       case FETCH_ALL:
          return {
             ...state,
