@@ -23,7 +23,6 @@ const PostDetails = () => {
       if (post) {
          dispatch(getPostsBySearch({ search: 'none', tags: post?.tags.join(',') }));
       }
-
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [post]);
    
@@ -81,7 +80,8 @@ const PostDetails = () => {
                <div className={classes.recommendedPosts}>
                   {recomendedPosts.map(({ title, message, name, likes, selectedFile, _id }) => (
                      <div 
-                        style={{ margin: '20px', cursor: 'pointer' }} 
+                        style={{ margin: '10px', cursor: 'pointer' }} 
+                        className={classes.recommendedPost}
                         onClick={() => openPost(_id)}
                         key={_id}
                      >

@@ -33,6 +33,12 @@ export default makeStyles((theme) => ({
          flexDirection: 'column',
       },
    },
+   recommendedPost: {
+      backgroundColor: '#e0e0e0',
+      padding: '10px',
+      borderRadius: '8px',
+      boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.2)'
+   },
    loadingPaper: {
       display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px', borderRadius: '15px', height: '39vh',
    },

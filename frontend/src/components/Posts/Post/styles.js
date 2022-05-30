@@ -30,8 +30,8 @@ export default makeStyles({
    },
    overlay2: {
       position: 'absolute',
-      top: '20px',
-      right: '20px',
+      top: '2%',
+      right: '2%',
       color: 'white',
    },
    grid: {
@@ -53,5 +53,5 @@ export default makeStyles({
    cardAction: {
       display: 'block',
       textAlign: 'initial',
-    }
+   }
 });
