@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import useStyles from './styles';
 import { createPost, updatePost } from '../../actions/posts';
+import { useNavigate } from 'react-router-dom';
 
 const Form = ({ currentId, setCurrentId }) => {
    const [postData, setPostData] = useState({
@@ -14,10 +15,10 @@ const Form = ({ currentId, setCurrentId }) => {
       selectedFile: ''
    });
    const user = JSON.parse(localStorage.getItem('profile'));
-
+   const navigate = useNavigate();
    
    const post = useSelector( state => (
-      currentId ? state.posts.find(p => p._id === currentId):null
+      currentId ? state.posts.posts.find(p => p._id === currentId):null
    ));
    
    useEffect(() => {
@@ -30,7 +31,7 @@ const Form = ({ currentId, setCurrentId }) => {
    const handleSubmit = (e) => {
       e.preventDefault();
       if (currentId === 0) {
-         dispatch(createPost({ ...postData, name: user?.result?.name }));
+         dispatch(createPost({ ...postData, name: user?.result?.name }, navigate ));
       } else {
          dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
       }
